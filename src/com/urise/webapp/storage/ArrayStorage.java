@@ -19,11 +19,11 @@ public class ArrayStorage {
         size = 0;
     }
 
-    public void update(Resume r) {
+    public void update(Resume resume) {
 
         for (int i = 0; i < size; i++) {
-            if (storage[i].getUuid().equals(r.getUuid())) {
-                storage[i] = r;
+            if (storage[i].getUuid().equals(resume.getUuid())) {
+                storage[i] = resume;
             }
         }
 
@@ -33,13 +33,13 @@ public class ArrayStorage {
 
         for (int i = 0; i < size; i++)
             if (storage[i].getUuid().equals(resume.getUuid())) {
-                System.out.printf("!!!Resume is already in storage!!!");
+                System.out.printf("ERROR:Resume is already in storage");
                 return;
             }
         if (size < storage.length) {
             storage[size] = resume;
             size++;
-        } else System.out.println("!!!There is no more space in the storage!!!");
+        } else System.out.println("ERROR:There is no more space in the storage");
     }
 
     public Resume get(String uuid) {
