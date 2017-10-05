@@ -43,9 +43,9 @@ public class ArrayStorage {
     }
 
     public Resume get(String uuid) {
-        for (int j = 0; j < size; j++) {
-            if (storage[j].getUuid().equals(uuid)) {
-                return storage[j];
+        for (int i = 0; i < size; i++) {
+            if (storage[i].getUuid().equals(uuid)) {
+                return storage[i];
             }
         }
         return null;
@@ -76,4 +76,5 @@ public class ArrayStorage {
     public int size() {
         return size;
     }
+
 }
