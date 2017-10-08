@@ -68,6 +68,7 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     public Resume[] getAll() {
+        //check out arraycopy option
         Resume[] tmpStorage = new Resume[size];
         for (int j = 0; j < size; j++) {
             tmpStorage[j] = storage[j];
