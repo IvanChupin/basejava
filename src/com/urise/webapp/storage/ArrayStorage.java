@@ -9,11 +9,12 @@ import java.util.Arrays;
  */
 public class ArrayStorage {
 
+    private static final int STORAGE_LIMIT = 10_000;
     Resume[] storage;
     private int size;
 
     public ArrayStorage() {
-        storage = new Resume[10];
+        storage = new Resume[STORAGE_LIMIT];
     }
 
     public void clear() {
@@ -29,7 +30,6 @@ public class ArrayStorage {
             storage[index] = resume;
 
     }
-
 
     public void save(Resume resume) {
 
