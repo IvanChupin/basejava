@@ -3,7 +3,7 @@ package com.urise.webapp.model;
 /**
  * com.urise.webapp.model.com.urise.webapp.model.Resume class
  */
-public class Resume {
+public class Resume  {
 
 
     // Unique identifier
