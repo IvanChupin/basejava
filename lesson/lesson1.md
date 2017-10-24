@@ -79,7 +79,7 @@
 
 - Реализуйте класс `com.urise.webapp.storage.ArrayStorage`: хранение резюме на основе массива (методы `clear, get, save, delete, getAll, size`). Не используйте в решении коллекции, реализацию на их основе мы добавим позднее.
 - Протестируйте вашу реализацию, запустив `MainTestArrayStorage.main()`: в IDEA слева на полях зеленая стрелка.
-- Протестируйте вашу реализацию интерактивно с помощью `MainArray.main()`.
+- Протестируйте вашу реализацию интерактивно с помощью `com.urise.webapp.MainArray.main()`.
 - Дополнительные материалы по IntelliJ IDEA
   - <a href="https://github.com/JavaOPs/topjava/wiki/IDEA">Idea Wiki</a> (поставить кодировку UTF-8, поменять фонт по умолчанию на DejaVu)
   - <a href="http://learn.javajoy.net/debug-intellij-idea">Отладчик IntelliJ IDEA</a>
@@ -95,4 +95,4 @@ r1, r2, r3,..., rn, null, null,..., null
 <----  storage.length (10000)---------->
 ```
 - Посмотреть на класс `Arrays`. Там есть полезные вещи, которые могут упростить код `com.urise.webapp.storage.ArrayStorage`.
-- Протестируйте реализацию, запустив MainArray.main(): в IDEA слева на полях зеленая стрелка.
+- Протестируйте реализацию, запустив com.urise.webapp.MainArray.main(): в IDEA слева на полях зеленая стрелка.
