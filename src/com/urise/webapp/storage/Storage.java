@@ -9,22 +9,23 @@ import java.util.Arrays;
  */
 public interface Storage {
 
+    int size();
 
-     void clear();
+    void clear();
 
-     void update(Resume resume);
+    void update(Resume resume);
 
-     void save(Resume resume);
+    void save(Resume resume);
 
-     Resume get(String uuid);
+    Resume get(String uuid);
 
 
-     void delete(String uuid);
+    void delete(String uuid);
 
     /**
      * @return array, contains only Resumes in storage (without null)
      */
-     Resume[] getAll();
+    Resume[] getAll();
 
-     int size();
+
 }
