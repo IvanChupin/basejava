@@ -33,3 +33,7 @@ public class ArrayStorage extends AbstractArrayStorage {
         storage[index] = storage[size - 1];
     }
 }
+
+
+
+// just empty note
