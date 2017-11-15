@@ -36,4 +36,3 @@ public class ArrayStorage extends AbstractArrayStorage {
 
 
 
-// just empty note
