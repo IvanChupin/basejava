@@ -11,16 +11,17 @@ public class MainTestArrayStorage {
     private final static Storage ARRAY_STORAGE = new MapStorage();
 
     public static void main(String[] args) {
-        final Resume r1 = new Resume("uuid3");
+        final Resume r1 = new Resume("uuid1");
 
         final Resume r2 = new Resume("uuid2");
 
-        final Resume r3 = new Resume("uuid1");
+        final Resume r3 = new Resume("uuid3");
 
 
         ARRAY_STORAGE.save(r1);
         ARRAY_STORAGE.save(r2);
         ARRAY_STORAGE.save(r3);
+        System.out.println(ARRAY_STORAGE.getAll().toString());
 
         System.out.println("Get r1: " + ARRAY_STORAGE.get(r1.getUuid()));
         System.out.println("Size: " + ARRAY_STORAGE.size());
