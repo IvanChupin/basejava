@@ -17,14 +17,13 @@ This application was being developed through the series of lessons listed below 
 **Object model, collection, input-output system, working with files, serialization, working with XML, JSON, SQL, PostgreSQL, servlets, HTML/JSP/JSTL, web-container Tomcat, module tests JUnit, java.util.Logging,  Git.**
 
 
-## Программа
-### [Регистрация](http://javaops.ru/reg/basejava)
+
 ### Lesson 1
- - [Презентация проекта](lesson/lesson1.md#-Вебинар-ПРЕЗЕНТАЦИЯ-обучения)
- - [Разработка ПО](lesson/lesson1.md#-1-Разработка-ПО)
- - [Обзор языка Java](lesson/lesson1.md#-3-Обзор-языка-java)
- - [Системы управления версиями. Git](lesson/lesson1.md#-4-Системы-управления-версиями-git)
- - [ПЕРВОЕ ДОМАШНЕЕ ЗАДАНИЕ](lesson/lesson1.md#Домашнее-задание-hw1)
+ - [Project presentation](lesson/lesson1.md#-Вебинар-ПРЕЗЕНТАЦИЯ-обучения)
+ - [App development](lesson/lesson1.md#-1-Разработка-ПО)
+ - [review Java](lesson/lesson1.md#-3-Обзор-языка-java)
+ - [Version control systems. Git](lesson/lesson1.md#-4-Системы-управления-версиями-git)
+ - [First home work](lesson/lesson1.md#Домашнее-задание-hw1)
 
 ### Lesson 2
  - [OOP foundation](lesson/lesson2.md#Принципы-ООП)
