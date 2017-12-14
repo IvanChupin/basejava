@@ -8,10 +8,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public abstract class AbstractStorageTest {
-    private Storage storage;
+    protected Storage storage;
 
 
     private static final String UUID_1 = "uuid1";
@@ -24,10 +27,10 @@ public abstract class AbstractStorageTest {
     private static final Resume RESUME_4;
 
     static {
-            RESUME_1 = new Resume(UUID_1);
-            RESUME_2 = new Resume(UUID_2);
-            RESUME_3 = new Resume(UUID_3);
-            RESUME_4 = new Resume(UUID_4);
+        RESUME_1 = new Resume(UUID_1, "Name 1");
+        RESUME_2 = new Resume(UUID_2, "Name 2");
+        RESUME_3 = new Resume(UUID_3, "Name 3");
+        RESUME_4 = new Resume(UUID_4, "Name 4");
     }
 
     protected AbstractStorageTest(Storage storage) {
@@ -37,9 +40,9 @@ public abstract class AbstractStorageTest {
     @Before
     public void setUp() throws Exception {
         storage.clear();
-        storage.save(new Resume(UUID_1));
-        storage.save(new Resume(UUID_2));
-        storage.save(new Resume(UUID_3));
+        storage.save(new Resume(UUID_1, "Name 1"));
+        storage.save(new Resume(UUID_2, "Name 2"));
+        storage.save(new Resume(UUID_3, "Name 3"));
     }
 
 
@@ -56,18 +59,6 @@ public abstract class AbstractStorageTest {
         assertGet(RESUME_4);
 
     }
-        // TODO remain only for arrays implementation
-    @Test(expected = StorageException.class)
-    public void saveOverFlow() throws Exception {
-        try {
-            for (int i = 4; i <= AbstractArrayStorage.STORAGE_LIMIT; i++) {
-                storage.save(new Resume());
-            }
-        } catch (StorageException e) {
-            Assert.fail();
-        }
-        storage.save(new Resume());
-    }
 
     @Test(expected = ExistStorageException.class)
     public void saveExist() throws Exception {
@@ -77,7 +68,7 @@ public abstract class AbstractStorageTest {
     //TODO adjust current realization of update() test
     @Test
     public void update() throws Exception {
-        Resume newResume = new Resume(UUID_1);
+        Resume newResume = new Resume(UUID_1, "New Name");
         storage.update(newResume);
         assertTrue(newResume == storage.get(UUID_1));
     }
@@ -114,12 +105,10 @@ public abstract class AbstractStorageTest {
 
 
     @Test
-    public void getAll() throws Exception {
-        Resume[] r = storage.getAll();
-        assertEquals(3, r.length);
-        assertEquals(RESUME_1, r[0]);
-        assertEquals(RESUME_2, r[1]);
-        assertEquals(RESUME_3, r[2]);
+    public void getAllSorted() throws Exception {
+        List<Resume> list = storage.getAllSorted();
+        assertEquals(3, list.size());
+        assertEquals(list, Arrays.asList(RESUME_1, RESUME_2, RESUME_3));
     }
 
     @Test

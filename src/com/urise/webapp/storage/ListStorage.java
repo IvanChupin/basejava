@@ -4,6 +4,7 @@ import com.urise.webapp.exception.StorageException;
 import com.urise.webapp.model.Resume;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ListStorage extends AbstractStorage {
@@ -18,9 +19,6 @@ public class ListStorage extends AbstractStorage {
     }
 
 
-    public Resume[] getAll() {
-        return listStorage.toArray(new Resume[listStorage.size()]);
-    }
 
     @Override
     public int size() {
@@ -45,6 +43,11 @@ public class ListStorage extends AbstractStorage {
     @Override
     protected boolean isExist(Object searchKey) {
         return searchKey != null;
+    }
+
+    @Override
+    protected List<Resume> doCopyAll() {
+        return new ArrayList<>(listStorage);
     }
 
     @Override
