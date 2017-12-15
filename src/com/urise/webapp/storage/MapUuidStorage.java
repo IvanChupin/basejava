@@ -7,13 +7,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-public class MapUuidStorage extends AbstractStorage {
+public class MapUuidStorage extends AbstractStorage<String> {
     protected HashMap<String, Resume> mapStorage = new HashMap<>();
 
 
     @Override
     protected List<Resume> doCopyAll() {
-        return new ArrayList<Resume>(mapStorage.values());
+        return new ArrayList<>(mapStorage.values());
     }
 
     @Override
@@ -27,36 +27,35 @@ public class MapUuidStorage extends AbstractStorage {
     }
 
     @Override
-    protected void doSave(Object searchKey, Resume resume) {
-        mapStorage.put(resume.getUuid(),resume);
+    protected void doSave(String uuid, Resume resume) {
+        mapStorage.put(resume.getUuid(), resume);
     }
 
     @Override
-    protected void doUpdate(Object searchKey, Resume resume) {
-        mapStorage.put((String) searchKey,resume);
+    protected void doUpdate(String uuid, Resume resume) {
+        mapStorage.put(uuid, resume);
     }
 
     @Override
-    protected void doDelete(Object searchKey) {
-        mapStorage.remove((String)searchKey);
+    protected void doDelete(String uuid) {
+        mapStorage.remove(uuid);
     }
 
     @Override
-    protected boolean isExist(Object searchKey) {
-        return searchKey!=null;
+    protected boolean isExist(String uuid) {
+        return uuid != null;
     }
 
     @Override
     protected String getSearchKey(String uuid) {
-        if (mapStorage.containsKey(uuid)){
+        if (mapStorage.containsKey(uuid)) {
             return uuid;
-        }
-        else return null;
+        } else return null;
         // return uuid;
     }
 
     @Override
-    protected Resume doGet(Object searchKey) {
-        return mapStorage.get((String)searchKey);
+    protected Resume doGet(String uuid) {
+        return mapStorage.get(uuid);
     }
 }

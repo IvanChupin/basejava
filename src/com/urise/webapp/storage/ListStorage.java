@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ListStorage extends AbstractStorage {
+public class ListStorage extends AbstractStorage<Integer> {
 
     private final int STORAGE_LIMIT = 10_000;
     protected List<Resume> listStorage = new ArrayList<>(STORAGE_LIMIT);
@@ -18,7 +18,7 @@ public class ListStorage extends AbstractStorage {
         listStorage.clear();
     }
 
-
+    
 
     @Override
     public int size() {
@@ -26,22 +26,22 @@ public class ListStorage extends AbstractStorage {
     }
 
     @Override
-    protected void doSave(Object searchKey, Resume resume) {
+    protected void doSave(Integer searchKey, Resume resume) {
         listStorage.add(resume);
     }
 
     @Override
-    protected void doUpdate(Object searchKey, Resume resume) {
-        listStorage.set((Integer) searchKey, resume);
+    protected void doUpdate(Integer searchKey, Resume resume) {
+        listStorage.set(searchKey, resume);
     }
 
     @Override
-    protected void doDelete(Object searchKey) {
-        listStorage.remove(((Integer) searchKey).intValue());
+    protected void doDelete(Integer searchKey) {
+        listStorage.remove(searchKey.intValue());
     }
 
     @Override
-    protected boolean isExist(Object searchKey) {
+    protected boolean isExist(Integer searchKey) {
         return searchKey != null;
     }
 
@@ -61,8 +61,8 @@ public class ListStorage extends AbstractStorage {
     }
 
     @Override
-    protected Resume doGet(Object searchKey) {
-        return listStorage.get((int) searchKey);
+    protected Resume doGet(Integer searchKey) {
+        return listStorage.get(searchKey);
     }
 }
 

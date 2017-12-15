@@ -43,6 +43,8 @@ public abstract class AbstractStorageTest {
         storage.save(new Resume(UUID_1, "Name 1"));
         storage.save(new Resume(UUID_2, "Name 2"));
         storage.save(new Resume(UUID_3, "Name 3"));
+
+
     }
 
 
