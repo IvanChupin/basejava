@@ -29,6 +29,4 @@ public interface Storage {
      */
 
     List<Resume> getAllSorted();
-
-
 }

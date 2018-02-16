@@ -8,14 +8,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public abstract class AbstractArrayStorageTest extends AbstractStorageTest {
+public abstract class AbstractArrayStorageTest extends AbstractStorageTest  {
 
 
     protected AbstractArrayStorageTest(Storage storage) {
         super(storage);
     }
 
-    // TODO remain only for arrays implementation!!!
+
     @Test(expected = StorageException.class)
     public void saveOverFlow() throws Exception {
         try {
