@@ -1,34 +1,46 @@
 package com.urise.webapp;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
-public class MainFile {
+public class MainFile implements FileFilter {
+    private String mask;
+
+    public MainFile(String mask) {
+        this.mask = mask;
+    }
+
     public static void main(String[] args) {
         String filePath = ".//.gitignore";
         File file = new File(filePath);
-
+        MainFile mf = new MainFile(".");
+        File fileDir = new File("/Users/ivan_macintosh/basejava/src");
         try {
-            System.out.println(file.getCanonicalPath());
+            mf.findFiles(fileDir);
         } catch (IOException e) {
-            throw new RuntimeException("Error", e);
+            e.printStackTrace();
         }
-        File fileDir = new File("/Users/ivan_macintosh/basejava/src/com/urise/webapp");
-        System.out.println(fileDir.isDirectory());
-        String[] listOfFiles = fileDir.list();
-        if (listOfFiles != null) {
-            for (String name : fileDir.list()) {
-                System.out.println(name);
+        System.out.println("work was done");
+
+    }
+
+    //TODO make pretty output
+    public void findFiles(File filePath) throws IOException{
+        if(filePath.isDirectory()){
+            System.out.println("Directory: "+ filePath.getCanonicalPath());
+            File[] files = filePath.listFiles();
+            for(int i = files.length; --i>=0;){
+                findFiles(files[i]);
+            }
+        }else {
+            if(accept(filePath)){
+                System.out.println("File: "+filePath.getName());
             }
         }
+    }
 
-        try {
-            FileInputStream fis = new FileInputStream(filePath);
-            System.out.println(fis.read());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+    @Override
+    public boolean accept(File pathname) {
+        return (pathname.getName().indexOf(mask)!=-1)?true:false;
     }
 }
